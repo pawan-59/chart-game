@@ -1,0 +1,16 @@
+apiVersion: v1
+entries:
+  kubewatch:
+  - apiVersion: v1
+    appVersion: 0.1.0
+    created: "2022-10-03T17:15:31.104486+05:30"
+    description: Chart to deploy Devtron Kubewatch
+    digest: 289407aca0c12de57594a8d2ec3549c3d1425c8dbcc23678d10ace268805caf4
+    maintainers:
+    - email: prakarsh@devtron.ai
+      name: Prakarsh
+    name: kubewatch
+    urls:
+    - https://pawan-59.github.io/chart-game/kubewatch-0.13.3.tgz
+    version: 0.13.3
+generated: "2022-10-03T17:15:31.103763+05:30"
