@@ -3,7 +3,7 @@ name: kubewatch
 appVersion: 0.1.0
 description: Chart to deploy Devtron Kubewatch
 engine: gotpl
-version: 0.13.3
+version: 0.13.4
 maintainers:
 - email: prakarsh@devtron.ai
   name: Prakarsh
