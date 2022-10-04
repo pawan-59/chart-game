@@ -119,7 +119,7 @@ kind: ClusterRoleBinding
 metadata:
   labels:
     app: kubewatch
-    chart: kubewatch-0.6.1
+    chart: kubewatch-0.6.2
     heritage: Tiller
     release: kubewatch
   name: kubewatch
