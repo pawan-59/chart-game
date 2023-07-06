@@ -1,0 +1,39 @@
+apiVersion: v1
+entries:
+  kubewatch:
+  - apiVersion: v1
+    appVersion: 0.1.0
+    created: "2023-07-06T23:15:46.674207+05:30"
+    description: Chart to deploy Devtron Kubewatch
+    digest: 19d1e7caa9e2e3c90d5e8851fd5ab3f30e7c7999a218b8f07aac22915c9e940b
+    maintainers:
+    - email: prakarsh@devtron.ai
+      name: Prakarsh
+    name: kubewatch
+    urls:
+    - https://pawan-59.github.io/chart-game/kubewatch-0.13.7.tgz
+    version: 0.13.7
+  - apiVersion: v1
+    appVersion: 0.1.0
+    created: "2023-07-06T23:15:46.673425+05:30"
+    description: Chart to deploy Devtron Kubewatch
+    digest: 289407aca0c12de57594a8d2ec3549c3d1425c8dbcc23678d10ace268805caf4
+    maintainers:
+    - email: prakarsh@devtron.ai
+      name: Prakarsh
+    name: kubewatch
+    urls:
+    - https://pawan-59.github.io/chart-game/kubewatch-0.13.3.tgz
+    version: 0.13.3
+  pre-install-test:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-07-06T23:15:46.675132+05:30"
+    description: A Helm chart for Kubernetes
+    digest: b2347fa5e37bf4fe711bec7c4ea1d486b79ca9ca04d2ab20f4d066fa5dc6391f
+    name: pre-install-test
+    type: application
+    urls:
+    - https://pawan-59.github.io/chart-game/pre-install-test-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-07-06T23:15:46.672703+05:30"

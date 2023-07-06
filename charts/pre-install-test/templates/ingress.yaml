@@ -1,9 +1,11 @@
 {{- if .Values.ingress.enabled -}}
-{{- $type := "ing" -}}
-{{- $action := "common" -}}
-{{- $Name := include "passbolt-library.fullname" . -}}
-{{- $fullName := printf "%s-%s-%s" $Name $type $action -}}
+{{- $fullName := include "pre-install-test.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
+{{- if and .Values.ingress.className (not (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion)) }}
+  {{- if not (hasKey .Values.ingress.annotations "kubernetes.io/ingress.class") }}
+  {{- $_ := set .Values.ingress.annotations "kubernetes.io/ingress.class" .Values.ingress.className}}
+  {{- end }}
+{{- end }}
 {{- if semverCompare ">=1.19-0" .Capabilities.KubeVersion.GitVersion -}}
 apiVersion: networking.k8s.io/v1
 {{- else if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
@@ -15,9 +17,7 @@ kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    {{- include "passbolt-library.labels" . | nindent 4 }}
-    {{- include "passbolt-library.selectorLabels" . | nindent 4 }}
-    {{- include "passbolt-library.typelabels" (dict "action" $action "type" $type) | nindent 4 }}
+    {{- include "pre-install-test.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
@@ -33,7 +33,7 @@ spec:
         {{- range .hosts }}
         - {{ . | quote }}
         {{- end }}
-      secretName: {{ $Name }}-sec-{{ .secretName }}
+      secretName: {{ .secretName }}
     {{- end }}
   {{- end }}
   rules:
@@ -49,13 +49,13 @@ spec:
             backend:
               {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion }}
               service:
-                name: {{ $Name }}
+                name: {{ $fullName }}
                 port:
                   number: {{ $svcPort }}
               {{- else }}
-              serviceName: {{ $Name }}
+              serviceName: {{ $fullName }}
               servicePort: {{ $svcPort }}
               {{- end }}
           {{- end }}
     {{- end }}
-  {{- end }}
+{{- end }}
