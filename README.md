@@ -1,3 +1,3 @@
 # chart-game
 
-chart repo for testing
+helm chart repo for testing
