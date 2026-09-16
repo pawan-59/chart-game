@@ -1,0 +1,8 @@
+apiVersion: v1
+appVersion: 0.1.0
+description: Chart to deploy Devtron Kubewatch
+maintainers:
+- email: prakarsh@devtron.ai
+  name: Prakarsh
+name: kubewatch
+version: 0.14.1
